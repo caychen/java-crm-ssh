@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-7 21:16:21 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="org.com.cay.entity">
+    <class name="User" table="SYS_USER">
+        <id name="userId" type="java.lang.Long" access="field">
+            <column name="USER_ID" />
+            <generator class="native" />
+        </id>
+        <property name="userCode" type="java.lang.String" access="field">
+            <column name="USER_CODE" />
+        </property>
+        <property name="userName" type="java.lang.String" access="field">
+            <column name="USER_NAME" />
+        </property>
+        <property name="userPassword" type="java.lang.String" access="field">
+            <column name="USER_PASSWORD" />
+        </property>
+        <property name="userState" type="java.lang.String" access="field">
+            <column name="USER_STATE" />
+        </property>
+    </class>
+</hibernate-mapping>

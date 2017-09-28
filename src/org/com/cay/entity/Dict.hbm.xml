@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-10 9:35:51 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="org.com.cay.entity">
+    <class name="Dict" table="BASE_DICT">
+        <id name="id" type="java.lang.String">
+            <column name="DICT_ID" />
+            <generator class="uuid" />
+        </id>
+        <property name="typeCode" type="java.lang.String">
+            <column name="DICT_TYPE_CODE" />
+        </property>
+        <property name="typeName" type="java.lang.String">
+            <column name="DICT_TYPE_NAME" />
+        </property>
+        <property name="itemName" type="java.lang.String">
+            <column name="DICT_ITEM_NAME" />
+        </property>
+        <property name="itemCode" type="java.lang.String">
+            <column name="DICT_ITEM_CODE" />
+        </property>
+        <property name="sort" type="java.lang.Integer">
+            <column name="DICT_SORT" />
+        </property>
+        <property name="enable" type="java.lang.String">
+            <column name="DICT_ENABLE" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="DICT_REMARK" />
+        </property>
+    </class>
+</hibernate-mapping>

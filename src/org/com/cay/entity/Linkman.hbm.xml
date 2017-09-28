@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-14 22:21:05 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="org.com.cay.entity">
+    <class name="Linkman" table="cst_linkman">
+        <id name="lkmId" type="java.lang.Long">
+            <column name="LKM_ID" />
+            <generator class="native" />
+        </id>
+        <property name="lkmName" type="java.lang.String">
+            <column name="LKM_NAME" />
+        </property>
+        <property name="lkmGender" type="java.lang.String">
+            <column name="LKM_GENDER" />
+        </property>
+        <property name="lkmPhone" type="java.lang.String">
+            <column name="LKM_PHONE" />
+        </property>
+        <property name="lkmMobile" type="java.lang.String">
+            <column name="LKM_MOBILE" />
+        </property>
+        <property name="lkmEmail" type="java.lang.String">
+            <column name="LKM_EMAIL" />
+        </property>
+        <property name="lkmQQ" type="java.lang.String">
+            <column name="LKM_QQ" />
+        </property>
+        <property name="lkmPosition" type="java.lang.String">
+            <column name="LKM_POSITION" />
+        </property>
+        <property name="lkmMemo" type="java.lang.String">
+            <column name="LKM_MEMO" />
+        </property>
+        
+        <many-to-one name="customer" class="Customer" fetch="join">
+            <column name="lkm_cust_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

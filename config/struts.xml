@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.ui.theme" value="simple"/>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 设置文件上传总大小，默认为2M，通过修改struts.multipart.maxSize=2097152 -->
+	<!-- <constant name="" value=""/> -->
+
+	<package name="crm" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="login" type="redirect">/login.jsp</result>
+		</global-results>
+	
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="loginOk">/index.jsp</result>
+			<allowed-methods>checkCode,register,login,logout</allowed-methods>
+		</action>
+		
+		<action name="customer_*" class="customerAction" method="{1}">
+			<!-- 引入默认的拦截器 -->
+			<interceptor-ref name="defaultStack">
+				<!-- 决定上传文件的类型 -->
+				<param name="fileUpload.allowedExtensions">.jpg,.txt</param>
+			</interceptor-ref>
+			
+			<result name="page">/jsp/customer/list.jsp</result>
+			<result name="initAddUI">/jsp/customer/add.jsp</result>
+			<result name="relist" type="redirectAction">customer_list</result>
+			<result name="input">/jsp/error.jsp</result>
+			<result name="initUpdate">/jsp/customer/edit.jsp</result>		
+			<allowed-methods>list,initAddUI,save,delete,initUpdate,update,listAll</allowed-methods>
+			
+		</action>
+		
+		<action name="dict_*" class="dictAction" method="{1}">
+			
+			<allowed-methods>list</allowed-methods>
+		</action>
+		
+		<action name="linkman_*" class="linkmanAction" method="{1}">
+			<result name="list">/jsp/linkman/list.jsp</result>
+			<result name="initUpdate">/jsp/linkman/edit.jsp</result>
+			<result name="relist" type="redirectAction">linkman_list</result>
+			<allowed-methods>list,initUpdate,delete,update</allowed-methods>
+		</action>
+		
+		<action name="visitor_*" class="visitorAction" method="{1}">
+			<result name="list">/jsp/visitor/list.jsp</result>
+			<!-- <result name="initUpdate">/jsp/linkman/edit.jsp</result>
+			<result name="relist" type="redirectAction">linkman_list</result> -->
+			<allowed-methods>list,initUpdate,delete,update</allowed-methods>
+		</action>
+	</package>
+	
+</struts>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-16 21:25:16 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="org.com.cay.entity">
+    <class name="Visitor" table="sale_visitor">
+        <id name="visitId" type="java.lang.String">
+            <column name="VISIT_ID" />
+            <generator class="uuid" />
+        </id>
+        <property name="visitTime" type="java.lang.String">
+            <column name="VISIT_TIME" />
+        </property>
+        <property name="visitInterviewee" type="java.lang.String">
+            <column name="VISIT_INTERVIEWEE" />
+        </property>
+        <property name="visitAddr" type="java.lang.String">
+            <column name="VISIT_ADDR" />
+        </property>
+        <property name="visitDetail" type="java.lang.String">
+            <column name="VISIT_DETAIL" />
+        </property>
+        <property name="visitNextTime" type="java.lang.String">
+            <column name="VISIT_NEXTTIME" />
+        </property>
+        <many-to-one name="customer" class="Customer">
+            <column name="VISIT_CUSTOMER_ID" />
+        </many-to-one>
+        <many-to-one name="user" class="User">
+            <column name="VISIT_USER_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
